@@ -1,0 +1,14 @@
+{
+  "name": "aplikasi3",
+  "version": "1.0.0",
+  "description": "selamat datang",
+  "main": "index.js",
+  "scripts": {
+    "serve": "node server.js"
+  },
+  "author": "Yohanes Billy Wicaksono",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
