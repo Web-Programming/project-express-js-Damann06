@@ -1,12 +1,11 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-var products = require('../data/products.json');
+var products = require("../data/product.json");
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { 
-    title: 'Tokoh Online Sederhana',
-    products: products 
+router.get("/", function(req, res, next) {
+  res.render("index", { 
+    title: "Tokoh Online Sederhana", products: products 
   });
 });
 
