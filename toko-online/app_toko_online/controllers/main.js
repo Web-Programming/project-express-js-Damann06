@@ -1,5 +1,6 @@
 const { router } = require("../../app");
 var products = require("../../data/product.json");
+const { search } = require("../routes");
 
 const index = (reg, res) => {
     res.render('index', {
@@ -8,7 +9,6 @@ const index = (reg, res) => {
         query:''
     });
 };
-
 
 
 module.exports = { index };
