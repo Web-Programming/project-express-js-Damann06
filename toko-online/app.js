@@ -5,6 +5,9 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 require(".app/_toko_online/models/db");
 
+var apiProductRouter = require("./app_toko_online/routes/api/product");
+app.use("/api/product", apiProductRouter); // daftarkan route API
+
 //perbaikan 2
 var indexRouter = require("./app_toko_online/routes/index.js");
 var usersRouter = require("./app_toko_online/routes/product.js");
