@@ -1,36 +1,41 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-// buat schema user
-const userSchema = new mongoose.Schema({
+const UserSchema = new mongoose.Schema({
   username: {
     type: String,
-    requiried: true,
-    unique: true,
+    required: [true, 'Nama pengguna harus diisi.'],
+    unique: true, // Tidak boleh ada username yang sama
     trim: true,
   },
   email: {
     type: String,
-    required: [true, "Email Harus Diisi"],
+    required: [true, 'Email harus diisi.'],
     unique: true,
-    match: [/.+\@.+\..+/, "Email Tidak Valid"],
+    match: [
+      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+      'Harap isi alamat email yang valid',
+    ], // Regex untuk validasi format email
   },
   password: {
     type: String,
-    required: [true, "Kata Sandi Harus Diisi."],
-    minlength: [6, "Kata sandi minimal 6 karakter."],
-    select: false, // penting jangan sertakan password saat mengambil data user
+    required: [true, 'Kata sandi harus diisi.'],
+    minlength: [6, 'Kata sandi minimal 6 karakter.'],
+    select: false, // Penting: Jangan sertakan password saat query GET
   },
   address: {
     type: String,
+    default: 'Belum diisi',
   },
   isAdmin: {
     type: Boolean,
     default: false,
   },
-  createAt: {
+  createdAt: {
     type: Date,
     default: Date.now,
   },
 });
 
-modeule.exports = mongoose.model("User", userSchema);
+//Buat model dari Schema
+const User = mongoose.model('User', UserSchema);
+module.exports = User;
